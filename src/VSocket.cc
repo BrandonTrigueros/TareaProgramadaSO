@@ -227,31 +227,3 @@ int VSocket::Shutdown(int mode) {
   }
   return st;
 }
-
-size_t VSocket::sendTo(const void* buffer, size_t size, void* addr) {
-  size_t st = -1;
-  socklen_t addr_len;
-  this->IPv6 ? addr_len = sizeof(struct sockaddr_in6)
-             : addr_len = sizeof(struct sockaddr_in);
-  st = sendto(
-      this->idSocket, buffer, size, 0, (struct sockaddr*)addr, addr_len);
-  if (-1 == st) {
-    throw std::runtime_error("VSocket::sendTo");
-  } else {
-    return st;
-  }
-}
-
-size_t VSocket::recvFrom(void* buffer, size_t size, void* addr) {
-  size_t st = -1;
-  socklen_t addr_len;
-  this->IPv6 ? addr_len = sizeof(struct sockaddr_in6)
-             : addr_len = sizeof(struct sockaddr_in);
-  st = recvfrom(
-      this->idSocket, buffer, size, 0, (struct sockaddr*)addr, &addr_len);
-  if (-1 == st) {
-    throw std::runtime_error("VSocket::recvFrom");
-  } else {
-    return st;
-  }
-}

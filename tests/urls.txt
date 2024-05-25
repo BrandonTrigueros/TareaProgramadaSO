@@ -1,6 +1,5 @@
-bete1.com
-bete2.com
-bete3.com
-bete4.com
-bete5.com
-bete6.com
+os.ecci.ucr.ac.cr/ci0123/
+https://www.ecci.ucr.ac.cr/oferta-acad%C3%A9mica/bachillerato-en-computaci%C3%B3n-con-varios-%C3%A9nfasis-0
+https://os.ecci.ucr.ac.cr/ci0121/
+os.ecci.ucr.ac.cr
+git.ucr.ac.cr/users/sign_in

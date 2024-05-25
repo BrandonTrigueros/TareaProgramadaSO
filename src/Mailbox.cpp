@@ -3,7 +3,7 @@
 Mailbox::Mailbox() {
   this->queue_id = -1;
   this->owner_id = -1;
-  this->semaphore = new Semaphore("C17899", 1, 0666);
+  this->semaphore = new Semaphore("C17899", 1, IPC_CREAT | 0666);
   this->users_ids = new std::vector<size_t>();
 }
 

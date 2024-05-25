@@ -34,7 +34,8 @@ class Socket : public VSocket {
   size_t Write(const char*);
   Socket* Accept();
 
-  protected:
+  size_t Send(const void* buffer, size_t size);
+  size_t Recv(void* buffer, size_t size);
 };
 
 #endif

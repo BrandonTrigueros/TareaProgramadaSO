@@ -9,10 +9,10 @@
  *
  **/
 
-#include <cstddef>
-
 #ifndef VSocket_h
 #define VSocket_h
+
+#include <cstddef>
 
 class VSocket {
   protected:
@@ -40,9 +40,6 @@ class VSocket {
   int DoAccept();
   virtual VSocket* Accept() = 0;
   int Shutdown(int);
-
-  size_t sendTo(const void* buffer, size_t size, void* addr);
-  size_t recvFrom(void* buffer, size_t size, void* addr);
 };
 
 #endif  // VSocket_h

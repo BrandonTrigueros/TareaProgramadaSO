@@ -13,6 +13,7 @@ class GlobalAnalyzer {
   Mailbox& mailbox;
   std::vector<int> pids;
   std::vector<std::string>* urls;
+
   std::map<std::string, int>* url_totalTags;
   std::map<std::string, std::map<std::string, int>*>* url_maps;
 

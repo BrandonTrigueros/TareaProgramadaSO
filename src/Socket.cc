@@ -132,3 +132,23 @@ Socket* Socket::Accept() {
     return other;
   }
 }
+
+size_t Socket::Send(const void* buffer, size_t size) {
+  size_t st = -1;
+  st = send(this->idSocket, buffer, size, 0);
+  if (-1 == st) {
+    throw std::runtime_error("VSocket::sendTo");
+  } else {
+    return st;
+  }
+}
+
+size_t Socket::Recv(void* buffer, size_t size) {
+  size_t st = -1;
+  st = recv(this->idSocket, buffer, size, 0);
+  if (-1 == st) {
+    throw std::runtime_error("VSocket::recvFrom");
+  } else {
+    return st;
+  }
+}

@@ -5,6 +5,7 @@ Semaphore::Semaphore(std::string key, int num_semaphores, int flags) {
   key_t key_t = ftok(key.c_str(), 'a');
   sem_id = semget(key_t, num_semaphores, flags);
   if (sem_id == -1) {
+    std::cout << "Error: " << errno << std::endl;
     throw std::runtime_error("Failed to create semaphore");
   }
   if (num_semaphores == 1) {

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Mailbox.h"
 #include "Socket.h"
 
 #include <cstring>
@@ -17,9 +18,10 @@ class Analyzer {
   public:
   Analyzer();
   ~Analyzer();
-  std::map<std::string, int>* GetMap(std::string url);
+  std::map<std::string, int>* getMap(std::string url);
+  void sendMessage(std::map<std::string, int>* tags, Mailbox& mailbox);
 
   private:
-  std::string GetHTML(std::string url);
-  std::map<std::string, int>* AnalizeHTML(std::string html);
+  std::string getHTML(std::string url);
+  std::map<std::string, int>* analizeHTML(std::string html);
 };

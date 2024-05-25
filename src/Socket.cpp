@@ -1,12 +1,3 @@
-#include <arpa/inet.h>
-#include <stdexcept>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/socket.h>
-#include <sys/types.h>
-#include <unistd.h>
-
 #include "Socket.h"
 
 Socket::Socket(char type, bool IPv6) { this->InitSocket(type, IPv6); }

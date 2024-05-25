@@ -4,35 +4,29 @@ Analyzer::Analyzer() { }
 
 Analyzer::~Analyzer() { }
 
-std::map<std::string, int>* Analyzer::GetMap(std::string url) {
-  return this->AnalizeHTML(this->GetHTML(url));
+std::map<std::string, int>* Analyzer::getMap(std::string url) {
+  return this->analizeHTML(this->getHTML(url));
 }
 
-std::map<std::string, int>* Analyzer::AnalizeHTML(std::string html) {
-  std::regex etiqueta_regex("<([^>]*)>");
-  std::smatch coincidencias;
-  std::string::const_iterator inicio = html.cbegin();
-  std::string::const_iterator fin = html.cend();
-  std::map<std::string, int>* etiquetas = new std::map<std::string, int>;
-  while (std::regex_search(inicio, fin, coincidencias, etiqueta_regex)) {
-    auto it = etiquetas->find(coincidencias[1].str());
-    if (it == etiquetas->end()) {
-      etiquetas->insert({ coincidencias[1].str(), 1 });
+std::map<std::string, int>* Analyzer::analizeHTML(std::string html) {
+  std::regex regex_tag("<([^>]*)>");
+  std::smatch matches;
+  std::string::const_iterator begin = html.cbegin();
+  std::string::const_iterator end = html.cend();
+  std::map<std::string, int>* tags = new std::map<std::string, int>;
+  while (std::regex_search(begin, end, matches, regex_tag)) {
+    auto it = tags->find(matches[1].str());
+    if (it == tags->end()) {
+      tags->insert({ matches[1].str(), 1 });
     } else {
       it->second++;
     }
-    inicio = coincidencias.suffix().first;
+    begin = matches.suffix().first;
   }
-  std::map<std::string, int>::iterator it = etiquetas->begin();
-  while (it != etiquetas->end()) {
-    std::cout << "Etiqueta <" << it->first << "> encontrada " << it->second
-              << " veces." << std::endl;
-    ++it;
-  }
-  return etiquetas;
+  return tags;
 }
 
-std::string Analyzer::GetHTML(std::string url) {
+std::string Analyzer::getHTML(std::string url) {
   Socket* socket = new Socket('s');
   socket->Connect(url.c_str(), "80");
   std::string request
@@ -43,4 +37,11 @@ std::string Analyzer::GetHTML(std::string url) {
   std::string response(buffer, byteRecv);
   delete socket;
   return response;
+}
+
+void Analyzer::sendMessage(std::map<std::string, int>* tags, Mailbox& mailbox) {
+  Message_t* message = new Message_t;
+  message->data = (void*)tags;
+  message->sender_pid = getpid();
+  mailbox.SendMsg(message);
 }

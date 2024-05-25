@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Analyzer.h"
-#include "Mailbox.h"
 
 #include <iostream>
 #include <map>

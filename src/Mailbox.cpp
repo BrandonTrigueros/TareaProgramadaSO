@@ -3,8 +3,19 @@
 Mailbox::Mailbox() {
   this->queue_id = -1;
   this->owner_id = -1;
-  this->queue_size = 0;
+  this->sendSemaphore = new Semaphore("C17899", 1, 0666);
   this->users_ids = new std::vector<size_t>();
+}
+
+Mailbox::~Mailbox() {
+  this->destroyMsgQueue();
+  delete this->users_ids;
+  delete this->sendSemaphore;
+}
+
+Mailbox& Mailbox::getInstance() {
+  static Mailbox instance;
+  return instance;
 }
 
 void Mailbox::createMsgQueue() {
@@ -23,26 +34,22 @@ void Mailbox::destroyMsgQueue() {
 }
 
 void Mailbox::SendMsg(Message_t* data) {
-  size_t ret = msgsnd(this->queue_id, data, sizeof(data), 0);
-  if (ret == -1) {
+  this->sendSemaphore->wait(0);
+  if (msgsnd(this->queue_id, data, sizeof(data), 0) == -1) {
     std::cerr << "Error sending message" << std::endl;
     exit(1);
   }
+  this->sendSemaphore->signal(0);
 }
 
 Message_t Mailbox::RecieveMsg() {
   Message_t msg;
-  size_t ret = msgrcv(this->queue_id, &msg, sizeof(msg), 0, 0);
-  if (ret == -1) {
+  if (msgrcv(this->queue_id, &msg, sizeof(msg), 0, 0) == -1) {
     std::cerr << "Error receiving message" << std::endl;
     exit(1);
   }
   return msg;
 }
 
-Mailbox::~Mailbox() {
-  this->destroyMsgQueue();
-  delete this->users_ids;
-}
-
+void Mailbox::setOwnerId(size_t id) { this->owner_id = id; }
 void Mailbox::AddUserPid(size_t pid) { this->users_ids->push_back(pid); }

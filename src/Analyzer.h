@@ -5,4 +5,4 @@
 #include <regex>
 #include <sstream>
 
-void ReadHtml();
+void ReadHtml(std::string url);

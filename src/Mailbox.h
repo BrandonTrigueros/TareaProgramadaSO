@@ -1,35 +1,37 @@
 #pragma once
 
-#include "common.hpp"
+#include "Semaphore.h"
+#include <iostream>
+
 #include <sys/msg.h>
 #include <vector>
+
+typedef struct Message {
+  void* data;
+  size_t sender_pid;
+} Message_t;
 
 class Mailbox {
   private:
   int queue_id;
   size_t owner_id;
-  size_t queue_size;
+  Semaphore* sendSemaphore;
   std::vector<size_t>* users_ids;
 
   Mailbox();
   ~Mailbox();
 
   public:
-  static Mailbox& getInstance() {
-    static Mailbox instance;
-    return instance;
-  }
+  static Mailbox& getInstance();
 
   Mailbox(const Mailbox&) = delete;
   Mailbox& operator=(const Mailbox&) = delete;
 
-  // Public member functions
   void createMsgQueue();
   void destroyMsgQueue();
-
   void SendMsg(Message_t* data);
   Message_t RecieveMsg();
 
-  private:
+  void setOwnerId(size_t id);
   void AddUserPid(size_t pid);
 };

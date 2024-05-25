@@ -1,8 +1,8 @@
 #include "Analyzer.h"
 // std::map<std::string, int>*
 
-void ReadHtml() {
-  std::string nombreArchivo = "src/test.txt";
+void ReadHtml(std::string url) {
+  std::string nombreArchivo = "tests/test.txt";
   std::ifstream archivo(nombreArchivo);
   if (!archivo.is_open()) {
     std::cerr << "Error al abrir el archivo " << std::endl;

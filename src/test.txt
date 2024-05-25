@@ -1,0 +1,47 @@
+<head>
+</script>
+
+</head>
+
+<body>
+<div class="st14">
+<table width="100%"><tbody><tr>
+      <td>
+         <h1> Universidad de Costa Rica </h1>
+         <h2> Escuela de Ciencias de la Computación e Informática 
+</h2>
+         <h3> CI-0123 PI de sistemas operativos y redes </h3>
+         <h3> Ejemplos de servicio </h3>
+      </td>
+      <td>
+         <img src="/images/ECCI-new-logo-transparent.png" width="100px">
+      </td>
+   </tr><tr>
+   </tr></tbody></table>
+</div>
+
+<center>
+<div class="st12">
+   <h1> Figuras </h1>
+   <form>
+      <select name="figures" onchange="goFigure( this.form )">
+         <option value="none"> Elegir </option>
+         <option value="horse"> Caballo </option>
+         <option value="elephant"> Elefante </option>
+         <option value="giraffe"> Jirafa </option>
+         <option value="whitesheep"> Oveja blanca </option>
+         <option value="blacksheep"> Oveja negra </option>
+         <option value="duck"> Pato </option>
+         <option value="fish"> Pez </option>
+      </select>
+
+      <select name="part">
+         <option selected="" value="0"> Completo </option>
+         <option value="1"> Primera Mitad </option>
+         <option value="2"> Segunda  Mitad </option>
+      </select>
+      
+   </form>
+</div>
+</center>
+</body>

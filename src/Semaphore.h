@@ -1,5 +1,4 @@
-#ifndef SEMAPHORE_H
-#define SEMAPHORE_H
+#pragma once
 
 #include <stdexcept>
 #include <sys/sem.h>
@@ -15,5 +14,3 @@ class Semaphore {
   void wait(int semaphore_index);
   void signal(int semaphore_index);
 };
-
-#endif  // SEMAPHORE_H

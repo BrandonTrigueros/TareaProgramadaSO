@@ -1,15 +1,17 @@
-#ifndef GLOBALANALYZER_H
-#define GLOBALANALYZER_H
+#pragma once
 
-#include "Mailbox.cpp"
+#include "Analyzer.h"
+#include "Mailbox.h"
 
 #include <iostream>
 #include <map>
+#include <unistd.h>
 
 class GlobalAnalyzer {
 
   private:
   Mailbox& mailbox;
+  std::vector<int> pids;
   std::vector<std::string>* urls;
   std::map<std::string, int>* url_totalTags;
   std::map<std::string, std::map<std::string, int>*>* url_maps;
@@ -19,7 +21,5 @@ class GlobalAnalyzer {
   ~GlobalAnalyzer();
 
   void createProcesses(std::vector<std::string>* urls);
-  void waitProcesses();
+  void readMailbox();
 };
-
-#endif  // GLOBALANALYZER_H

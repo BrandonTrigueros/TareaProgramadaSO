@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <vector>
 
-#include "Analyzer.h"
+#include "GlobalAnalyzer.h"
 
 std::vector<std::string>* initSource();
 
@@ -12,21 +12,8 @@ int main() {
   if (urls == nullptr) {
     return 1;
   } else {
-    // create Global Analyzer
-    for (size_t i = 0; i < urls->size(); i++) {
-      int pid = fork();
-      if (pid == -1) {
-        std::cout << "Se tensó xd" << std::endl;
-        return 1;
-      } else if (pid == 0) {
-        std::cout << "Soy un hijo, chat" << std::endl;
-        // **** asigno un url ****
-        ReadHtml(urls->at(i));
-        break;
-      } else {
-        std::cout << "Soy admin :v" << std::endl;
-      }
-    }
+    GlobalAnalyzer* gb = new GlobalAnalyzer();
+    gb->createProcesses(urls);
   }
   return 0;
 }

@@ -1,29 +1,25 @@
 #include "Analyzer.h"
-// std::map<std::string, int>*
 
-void ReadHtml(std::string url) {
-  std::string nombreArchivo = "tests/test.txt";
-  std::ifstream archivo(nombreArchivo);
-  if (!archivo.is_open()) {
-    std::cerr << "Error al abrir el archivo " << std::endl;
-    return;
-  }
-  std::stringstream buffer;
-  buffer << archivo.rdbuf();
-  archivo.close();
-  std::string contenido = buffer.str();
-  // std::cout << "Contenido del archivo:\n" << contenido << std::endl;
+Analyzer::Analyzer() { }
+
+Analyzer::~Analyzer() { }
+
+std::map<std::string, int>* Analyzer::GetMap(std::string url) {
+  return this->AnalizeHTML(this->GetHTML(url));
+}
+
+std::map<std::string, int>* Analyzer::AnalizeHTML(std::string html) {
   std::regex etiqueta_regex("<([^>]*)>");
   std::smatch coincidencias;
-  std::string::const_iterator inicio = contenido.cbegin();
-  std::string::const_iterator fin = contenido.cend();
+  std::string::const_iterator inicio = html.cbegin();
+  std::string::const_iterator fin = html.cend();
   std::map<std::string, int>* etiquetas = new std::map<std::string, int>;
   while (std::regex_search(inicio, fin, coincidencias, etiqueta_regex)) {
     auto it = etiquetas->find(coincidencias[1].str());
     if (it == etiquetas->end()) {
       etiquetas->insert({ coincidencias[1].str(), 1 });
     } else {
-      it->second++;  // Si la etiqueta existe, incrementar su valor en 1
+      it->second++;
     }
     inicio = coincidencias.suffix().first;
   }
@@ -34,5 +30,7 @@ void ReadHtml(std::string url) {
               << " veces." << std::endl;
     ++it;
   }
-  delete etiquetas;
+  return etiquetas;
 }
+
+std::string Analyzer::GetHTML(std::string url) { return std::string("xd"); }

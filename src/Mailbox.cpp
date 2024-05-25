@@ -3,14 +3,14 @@
 Mailbox::Mailbox() {
   this->queue_id = -1;
   this->owner_id = -1;
-  this->sendSemaphore = new Semaphore("C17899", 1, 0666);
+  this->semaphore = new Semaphore("C17899", 1, 0666);
   this->users_ids = new std::vector<size_t>();
 }
 
 Mailbox::~Mailbox() {
   this->destroyMsgQueue();
   delete this->users_ids;
-  delete this->sendSemaphore;
+  delete this->semaphore;
 }
 
 Mailbox& Mailbox::getInstance() {
@@ -34,20 +34,22 @@ void Mailbox::destroyMsgQueue() {
 }
 
 void Mailbox::SendMsg(Message_t* data) {
-  this->sendSemaphore->wait(0);
+  this->semaphore->wait(0);
   if (msgsnd(this->queue_id, data, sizeof(data), 0) == -1) {
     std::cerr << "Error sending message" << std::endl;
     exit(1);
   }
-  this->sendSemaphore->signal(0);
+  this->semaphore->signal(0);
 }
 
 Message_t Mailbox::RecieveMsg() {
+  this->semaphore->wait(0);
   Message_t msg;
   if (msgrcv(this->queue_id, &msg, sizeof(msg), 0, 0) == -1) {
     std::cerr << "Error receiving message" << std::endl;
     exit(1);
   }
+  this->semaphore->signal(0);
   return msg;
 }
 

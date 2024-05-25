@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Semaphore.h"
-#include <iostream>
 
+#include <iostream>
 #include <sys/msg.h>
 #include <vector>
 
@@ -15,7 +15,7 @@ class Mailbox {
   private:
   int queue_id;
   size_t owner_id;
-  Semaphore* sendSemaphore;
+  Semaphore* semaphore;
   std::vector<size_t>* users_ids;
 
   Mailbox();

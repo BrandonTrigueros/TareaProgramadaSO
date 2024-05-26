@@ -10,18 +10,24 @@ GlobalAnalyzer::GlobalAnalyzer() {
 GlobalAnalyzer::~GlobalAnalyzer() {
   delete this->urls;
   delete this->url_maps;
+  delete this->mailbox;
 }
 
 void GlobalAnalyzer::createProcesses(std::vector<std::string>* urls) {
   this->urls = urls;
+  // Por cada URL se crea un proceso hijo
   for (size_t i = 0; i < urls->size(); i++) {
     pid_t pid = fork();
     if (pid == -1) {
       std::cout << "Error creating child process" << std::endl;
       return;
+      // Si soy un proceso hijo, envío un mensaje con las etiquetas
     } else if (pid == 0) {
       Analyzer analyzer;
       analyzer.sendMessage(urls->at(i), this->mailbox);
+      delete this->urls;
+      delete this->url_maps;
+      delete this->mailbox;
       exit(0);
     } else {
       std::cout << "Child created with PID: " << pid << std::endl;
@@ -30,6 +36,8 @@ void GlobalAnalyzer::createProcesses(std::vector<std::string>* urls) {
 }
 
 void GlobalAnalyzer::readMailbox() {
+  // Mientras la cantidad de mapas obtenidos no sea la misma cantidad de URLs
+  // obtenidos, se intenta sacar mensajes de la cola
   while (this->url_maps->size() < this->urls->size()) {
     Message_t message = this->mailbox->RecieveMsg();
     if (message.sender_pid != -1) {
@@ -54,7 +62,6 @@ std::map<std::string, int> GlobalAnalyzer::analyzeTags(std::string tags) {
   std::map<std::string, int> contador;
   std::istringstream ss(tags);
   std::string etiqueta;
-
   // Recorre el string de etiquetas
   while (std::getline(ss, etiqueta, '<')) {
     // Ignora el texto antes de la etiqueta

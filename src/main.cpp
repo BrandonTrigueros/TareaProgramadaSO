@@ -13,13 +13,16 @@ int main() {
     return 1;
   } else {
     GlobalAnalyzer* globalAnalyzer = new GlobalAnalyzer();
+    // Creo procesos
     globalAnalyzer->createProcesses(urls);
+    // Leo los mensajes de los procesos hijos
     globalAnalyzer->readMailbox();
     delete globalAnalyzer;
   }
   return 0;
 }
 
+// Recepción de URLs
 std::vector<std::string>* initSource() {
   std::vector<std::string>* urls = nullptr;
   int input;
@@ -63,8 +66,5 @@ std::vector<std::string>* initSource() {
     std::cout << "Entrada inválida" << std::endl;
     return nullptr;
   }
-  // for (size_t i = 0; i < urls->size(); i++) {
-  //   std::cout << urls->at(i) << std::endl;
-  // }
   return urls;
 }

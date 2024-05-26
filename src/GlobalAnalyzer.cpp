@@ -25,9 +25,6 @@ void GlobalAnalyzer::createProcesses(std::vector<std::string>* urls) {
     } else if (pid == 0) {
       Analyzer analyzer;
       analyzer.sendMessage(urls->at(i), this->mailbox);
-      delete this->urls;
-      delete this->url_maps;
-      delete this->mailbox;
       exit(0);
     } else {
       std::cout << "Child created with PID: " << pid << std::endl;

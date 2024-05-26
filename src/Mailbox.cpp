@@ -4,11 +4,13 @@ Mailbox::Mailbox() {
   this->queue_id = -1;
   this->owner_id = -1;
   this->canAccessQueue = new Semaphore("C17899", 1, IPC_CREAT | 0666);
+  this->users_ids = new std::vector<size_t>();
   this->createMsgQueue();
 }
 
 Mailbox::~Mailbox() {
   this->destroyMsgQueue();
+  delete this->users_ids;
   delete this->canAccessQueue;
 }
 
@@ -67,3 +69,4 @@ Message_t Mailbox::RecieveMsg() {
 }
 
 void Mailbox::setOwnerId(size_t id) { this->owner_id = id; }
+void Mailbox::AddUserPid(size_t pid) { this->users_ids->push_back(pid); }

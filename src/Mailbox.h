@@ -25,6 +25,7 @@ class Mailbox {
   int queue_id;  /// ID de la cola de mensajes para el envío de mensajes entre
                  /// procesos.
   size_t owner_id;  /// ID del proceso
+  std::vector<size_t>* users_ids;
   Semaphore* canAccessQueue;  /// Semáforo para controlar el acceso a la cola de
                               /// mensajes.
 
@@ -61,4 +62,10 @@ class Mailbox {
    * @param id El pid del dueño.
    */
   void setOwnerId(size_t id);
+
+  /**
+   * @brief Agrega un pid de usuario al buzon.
+   * @param pid El pid del usuario.
+   */
+  void AddUserPid(size_t pid);
 };

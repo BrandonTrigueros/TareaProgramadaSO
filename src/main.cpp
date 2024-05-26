@@ -15,6 +15,7 @@ int main() {
     GlobalAnalyzer* globalAnalyzer = new GlobalAnalyzer();
     globalAnalyzer->createProcesses(urls);
     globalAnalyzer->readMailbox();
+    delete globalAnalyzer;
   }
   return 0;
 }

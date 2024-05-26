@@ -9,17 +9,15 @@
 class GlobalAnalyzer {
 
   private:
-  Mailbox& mailbox;
-  std::vector<int> pids;
+  Mailbox* mailbox;
   std::vector<std::string>* urls;
-
-  std::map<std::string, int>* url_totalTags;
-  std::map<std::string, std::map<std::string, int>*>* url_maps;
+  std::map<std::string, std::map<std::string, int>>* url_maps;
 
   public:
   GlobalAnalyzer();
   ~GlobalAnalyzer();
 
   void createProcesses(std::vector<std::string>* urls);
+  std::map<std::string, int> analyzeTags(std::string tags);
   void readMailbox();
 };

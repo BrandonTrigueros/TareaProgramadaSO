@@ -18,10 +18,10 @@ class Analyzer {
   public:
   Analyzer();
   ~Analyzer();
-  std::map<std::string, int>* getMap(std::string url);
-  void sendMessage(std::map<std::string, int>* tags, Mailbox& mailbox);
+  std::string getString(std::string url);
+  void sendMessage(std::string url, Mailbox* mailbox);
 
   private:
   std::string getHTML(std::string url);
-  std::map<std::string, int>* analizeHTML(std::string html);
+  std::string analizeHTML(std::string html);
 };

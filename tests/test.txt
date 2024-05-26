@@ -1,47 +1,54 @@
-<head>
-</script>
+#include "GlobalAnalyzer.h"
 
-</head>
+GlobalAnalyzer::GlobalAnalyzer() {
+  this->mailbox = new Mailbox();
+  this->mailbox->setOwnerId(getpid());
+  this->urls = new std::vector<std::string>;
+  this->url_maps = new std::map<std::string, std::map<std::string, int>*>;
+}
 
-<body>
-<div class="st14">
-<table width="100%"><tbody><tr>
-      <td>
-         <h1> Universidad de Costa Rica </h1>
-         <h2> Escuela de Ciencias de la Computación e Informática 
-</h2>
-         <h3> CI-0123 PI de sistemas operativos y redes </h3>
-         <h3> Ejemplos de servicio </h3>
-      </td>
-      <td>
-         <img src="/images/ECCI-new-logo-transparent.png" width="100px">
-      </td>
-   </tr><tr>
-   </tr></tbody></table>
-</div>
+GlobalAnalyzer::~GlobalAnalyzer() {
+  delete this->urls;
+  for (auto it = this->url_maps->begin(); it != this->url_maps->end(); it++) {
+    delete it->second;
+  }
+  delete this->url_maps;
+}
 
-<center>
-<div class="st12">
-   <h1> Figuras </h1>
-   <form>
-      <select name="figures" onchange="goFigure( this.form )">
-         <option value="none"> Elegir </option>
-         <option value="horse"> Caballo </option>
-         <option value="elephant"> Elefante </option>
-         <option value="giraffe"> Jirafa </option>
-         <option value="whitesheep"> Oveja blanca </option>
-         <option value="blacksheep"> Oveja negra </option>
-         <option value="duck"> Pato </option>
-         <option value="fish"> Pez </option>
-      </select>
+void GlobalAnalyzer::createProcesses(std::vector<std::string>* urls) {
+  this->urls = urls;
+  for (size_t i = 0; i < urls->size(); i++) {
+    pid_t pid = fork();
+    if (pid == -1) {
+      std::cout << "Error creating child process" << std::endl;
+      return;
+    } else if (pid == 0) {
+      Analyzer* analyzer = new Analyzer();
+      std::map<std::string, int>* myMap = analyzer->getMap(urls->at(i));
+      analyzer->sendMessage((urls->at(i)), myMap, this->mailbox);
+      exit(0);
+    }
+  }
+}
 
-      <select name="part">
-         <option selected="" value="0"> Completo </option>
-         <option value="1"> Primera Mitad </option>
-         <option value="2"> Segunda  Mitad </option>
-      </select>
-      
-   </form>
-</div>
-</center>
-</body>
+void GlobalAnalyzer::readMailbox() {
+  while (this->url_maps->size() < this->urls->size()) {
+    Message_t* message = this->mailbox->RecieveMsg();
+    if (message->sender_pid != -1) {
+      std::map<std::string, int>* tags
+          = (std::map<std::string, int>*)message->data;
+      std::cout << "Message recieved from child number: " << message->sender_pid
+                << std::endl;
+      this->url_maps->insert({ message->sender_url, tags });
+    }
+    // delete message;
+  }
+
+  std::cout << "Tags per URL:" << std::endl;
+  for (auto it = this->url_maps->begin(); it != this->url_maps->end(); it++) {
+    std::cout << it->first << ":" << std::endl;
+    for (auto it2 = it->second->begin(); it2 != it->second->end(); it2++) {
+      std::cout << it2->first << ": " << it2->second << std::endl;
+    }
+  }
+}

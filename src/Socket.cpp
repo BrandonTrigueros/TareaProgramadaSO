@@ -57,18 +57,16 @@ int Socket::Connect(const char* host, int port) {
 }
 
 int Socket::Connect(const char* host, const char* service) {
-  struct addrinfo hints, *res, *rp;
+  struct addrinfo hints, *res;
   memset(&hints, 0, sizeof(struct addrinfo));
   hints.ai_family = AF_UNSPEC;
   hints.ai_socktype = SOCK_STREAM;
   hints.ai_flags = 0;
   hints.ai_protocol = 0;
   int st = getaddrinfo(host, service, &hints, &res);
-  for (rp = res; rp != NULL; rp = rp->ai_next) {
-    st = connect(this->idSocket, rp->ai_addr, rp->ai_addrlen);
-    if (0 != st) {
-      break;
-    }
+  st = connect(this->idSocket, res->ai_addr, res->ai_addrlen);
+  if (-1 == st) {
+    throw std::runtime_error("VSocket::DoConnect");
   }
   freeaddrinfo(res);
   return st;

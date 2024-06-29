@@ -13,7 +13,7 @@ GlobalAnalyzer::~GlobalAnalyzer() {
   delete this->mailbox;
 }
 
-void GlobalAnalyzer::createProcesses(std::vector<std::string>* urls) {
+void GlobalAnalyzer::createProcesses(std::vector<std::string> urls) {
   this->urls = urls;
   // Por cada URL se crea un proceso hijo
   for (size_t i = 0; i < urls->size(); i++) {

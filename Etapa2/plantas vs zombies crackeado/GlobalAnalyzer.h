@@ -33,7 +33,7 @@ class GlobalAnalyzer {
    * al buzon.
    * @param urls Vector of URLs to analyze.
    */
-  void createProcesses(std::vector<std::string>* urls);
+  void createProcesses(std::vector<std::string> urls);
   /**
    * @brief Obtiene uns string con las etiquetas del HTML y las cuenta para
    * agregarlas a un map.

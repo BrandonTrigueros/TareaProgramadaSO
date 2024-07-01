@@ -1,5 +1,5 @@
-#ifndef SEMAFORO_H
-#define SEMAFORO_H
+#ifndef SEMAPHORE_H
+#define SEMAPHORE_H
 
 #include <errno.h>
 #include <stdio.h>
@@ -11,9 +11,9 @@
 #define KEY 0xC17899
 
 // Clase encargada de informar a un proceso cuándo continuar su operación.
-class Semaforo {
+class Semaphore {
   public:
-  Semaforo(int valorInicial = 0);
+  Semaphore(int valorInicial = 0);
   void destructor();
   void signal();
   void wait();
@@ -29,4 +29,4 @@ class Semaforo {
     struct seminfo* __buf;
   };
 };
-#endif  // SEMAFORO_H
+#endif  // SEMAPHORE_H

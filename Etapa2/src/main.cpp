@@ -1,4 +1,6 @@
+#include "Analyzer.h"
 #include "Mailbox.h"
+#include "Menu.h"
 
 #include <cmath>
 #include <fstream>
@@ -10,49 +12,21 @@
 std::vector<std::string> initSource();
 
 int main() {
-  Mailbox correo;
-  char* prueba1 = new char[6000];
-  for (int i = 0; i < 6000; i++) {
-    prueba1[i] = (i % 10) + 48;
+  Mailbox mailbox;
+  int PID = fork();
+  if (PID == 0) {
+    Analyzer p1;
+    p1.sendMessage("https://os.ecci.ucr.ac.cr/ci0123/", mailbox);
+    exit(0);
+  } else {
+    std::string etiquetas = mailbox.RecieveMsg();
+    std::cout << etiquetas << std::endl;
   }
-  // std::cout << prueba1 << std::endl;
-  char* prueba2 = new char[6000];
-  for (int i = 0; i < 6000; i++) {
-    prueba2[i] = ((6000 - i) % 10) + 48;
-  }
-  double repeticiones = 6000 / 4040.0;
-  pid_t pid1 = fork();
-  if (pid1 == -1) {
-    std::cout << "Error creating child process" << std::endl;
-    return 1;
-    // Si soy un proceso hijo, envío un mensaje con las etiquetas
-  } else if (pid1 == 0) {
-    correo.SendMsg(prueba1, (u_int)ceil(repeticiones), 1);
-    return 0;
-  }
-  pid_t pid2 = fork();
-  if (pid2 == -1) {
-    std::cout << "Error creating child process" << std::endl;
-    return 1;
-    // Si soy un proceso hijo, envío un mensaje con las etiquetas
-  } else if (pid2 == 0) {
-    correo.SendMsg(prueba2, (u_int)ceil(repeticiones), 1);
-    return 0;
-  }
-  char* resultado1;
-  char* resultado2;
-  correo.RecieveMsg(resultado1);
-  std::cout << "Me llego esta picha del primer string:\n"
-            << resultado1 << std::endl;
-  correo.RecieveMsg(resultado2);
-  std::cout << "Me llego esta picha del segundo string:\n"
-            << resultado2 << std::endl;
   /*
   std::vector<std::string> urls = initSource();
   if (urls.empty()) {
     return 1;
   } else {
-
     crear storage xd :v hailGrasa
     creo buzon
     creo global-Anal
@@ -71,7 +45,6 @@ int main() {
     }
   }
   */
-
   return 0;
 }
 
@@ -118,3 +91,49 @@ std::vector<std::string> initSource() {
   }
   return urls;
 }
+
+// int main() {
+// Mailbox correo;
+// std::ostringstream oss;
+// for (int i = 0; i <= 3000; ++i) {
+//   oss << i;
+//   if (i < 3000) {
+//     oss << ", ";
+//   }
+// }
+// std::string prueba1 = oss.str();
+
+// std::ostringstream oss2;
+// for (int i = 3000; i >= 0; --i) {
+//   oss2 << i;
+//   if (i > 0) {
+//     oss2 << ", ";
+//   }
+// }
+// std::string prueba2 = oss2.str();
+
+// u_int reps = ceil(prueba1.size() / 4000.0);
+
+// pid_t pid1 = fork();
+// if (pid1 == -1) {
+//   std::cout << "Error creating child process" << std::endl;
+// } else if (pid1 == 0) {
+//   correo.SendMsg(prueba1, reps);
+//   exit(0);
+// } else {
+//   pid_t pid2 = fork();
+//   if (pid2 == -1) {
+//     std::cout << "Error creating child process" << std::endl;
+//   } else if (pid2 == 0) {
+//     correo.SendMsg(prueba2, reps);
+//     exit(0);
+//   } else {
+//     std::string resultado1 = correo.RecieveMsg();
+//     std::string resultado2 = correo.RecieveMsg();
+//     std::cout << "Me llego esta picha del primer string: " << resultado1
+//               << std::endl;
+//     std::cout << "Me llego esta picha del segundo string: " << resultado2
+//               << std::endl;
+//   }
+// }
+// }

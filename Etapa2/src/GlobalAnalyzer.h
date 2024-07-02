@@ -1,19 +1,21 @@
 #pragma once
 
+#include "Mailbox.h"
+#include "SuperBloque.h"
 #include <iostream>
+#include <string>
 #include <map>
 #include <unistd.h>
+#include <sstream>
 
 class GlobalAnalyzer {
   private:
-  // std::map<std::string, std::map<std::string, int>> url_maps;  /// Mapa de
-  // urls
+  Mailbox mailbox;
+  SuperBloque superBloque;
 
   public:
   GlobalAnalyzer();
+  GlobalAnalyzer(Mailbox mailbox, SuperBloque superBloque);
   ~GlobalAnalyzer();
-  void readMailbox();
-
-  private:
-  void guardarArchivo(std::string nombreArchivo);
+  void run();
 };

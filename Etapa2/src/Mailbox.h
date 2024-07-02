@@ -19,8 +19,7 @@
  */
 class Mailbox {
   private:
-  int queue_id;  /// ID de la cola de para el envío de mensajes entre procesos
-  Semaphore accessQueue = Semaphore(1);
+  Semaphore accessQueue = Semaphore(0);
   struct Message {  /// Mensaje que se envía entre procesos
     long type;  /// Va a ser el PID
     long final_msg;  /// Indica si es el último mensaje
@@ -28,6 +27,8 @@ class Mailbox {
   };
 
   public:
+  int queue_id;  /// ID de la cola de para el envío de mensajes entre procesos
+
   /**
    * @brief Constructor de la clase Mailbox.
    */

@@ -8,8 +8,7 @@ Mailbox::Mailbox() {
   }
 }
 
-Mailbox::~Mailbox() {
-}
+Mailbox::~Mailbox() { }
 
 void Mailbox::SendMsg(std::string etiqueta, unsigned repeticiones) {
   for (u_int i = 0; i < repeticiones; i++) {
@@ -34,25 +33,27 @@ std::string Mailbox::RecieveMsg() {
   std::string etiqueta = "";
   Message msg;
 
-  struct msqid_ds buf;
-   accessQueue.wait();
-  if (msgctl(queue_id, IPC_STAT, &buf) == -1) {
-    perror("msgctl");
-  }
-  if (buf.msg_qnum > 0) {
-    if (msgrcv(queue_id, &msg, sizeof(msg) - (sizeof(long)), 0, 0) == -1) {
-      // perror("msgrcv");
-    } else {
-      pid = msg.type;
-      etiqueta += std::string(msg.mtext);
-      if (msg.final_msg != 1) {
-        while (true) {
-          Message msgTemp;
-          msgrcv(queue_id, &msgTemp, sizeof(msgTemp) - (sizeof(long)), pid, 0);
-          etiqueta += std::string(msgTemp.mtext);
-          if (msgTemp.final_msg == 1) {
-            break;
-          }
+  // struct msqid_ds buf;
+  //  accessQueue.wait();
+  // if (msgctl(queue_id, IPC_STAT, &buf) == -1) {
+  //   perror("msgctl");
+  // }
+  // if (buf.msg_qnum > 0) {}
+
+  //! Cambio: msgflg 0 -> IPC_NOWAIT
+  int st = msgrcv(queue_id, &msg, sizeof(msg) - (sizeof(long)), 0, IPC_NOWAIT);
+  if (st == -1) {
+    perror("msgrcv");
+  } else {
+    pid = msg.type;
+    etiqueta += std::string(msg.mtext);
+    if (msg.final_msg != 1) {
+      while (true) {
+        Message msgTemp;
+        msgrcv(queue_id, &msgTemp, sizeof(msgTemp) - (sizeof(long)), pid, 0);
+        etiqueta += std::string(msgTemp.mtext);
+        if (msgTemp.final_msg == 1) {
+          break;
         }
       }
     }

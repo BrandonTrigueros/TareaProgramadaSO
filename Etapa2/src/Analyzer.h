@@ -29,7 +29,7 @@ class Analyzer {
    * @param url URL de la página a analizar.
    * @param mailbox Buzón para paso de mensajes entre procesos.
    */
-  void sendMessage(std::string url, Mailbox& mailbox);
+  void sendMessage(std::string url, Mailbox mailbox);
 
   /**
    * @brief Método que convierte un URL en un string con las etiquetas del HTML.

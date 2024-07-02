@@ -4,7 +4,7 @@ Analyzer::Analyzer() { }
 
 Analyzer::~Analyzer() { }
 
-void Analyzer::sendMessage(std::string url, Mailbox& mailbox) {
+void Analyzer::sendMessage(std::string url, Mailbox mailbox) {
   // Obtenemos el string con las etiquetas
   std::string tags = url + "\n" + this->analyzeTags(this->getString(url));
   mailbox.SendMsg(tags, (unsigned int)ceil(tags.size() / 4000.0));

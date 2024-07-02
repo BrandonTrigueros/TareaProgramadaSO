@@ -1,40 +1,42 @@
 #pragma once
 
-#include <iostream>
-#include <map>
-#include <vector>
-#include <utility>
+#include <algorithm>
 #include <cmath>
 #include <cstring>
+#include <iostream>
 #include <limits>
 #include <list>
-#include <limits>
-#include <algorithm>
+#include <map>
+#include <utility>
+#include <vector>
 
+#include "Archivo.h"
 #include "FreeSpaceManager.h"
 #include "Semaphore.h"
-#include "Archivo.h"
 #include "TableStructure.h"
 
-class SuperBloque{  
+class SuperBloque {
   private:
-    Semaphore mutex;
-    char** disco;
-    u_int block_size;
-    u_int num_blocks;
-    std::vector<Archivo> nameList;
-    TableStructure open_files_table;
-    FreeSpaceManager free_space_manager;
+  char** disco;
+  u_int block_size;
+  u_int num_blocks;
+  Semaphore mutexDisco;
+  std::vector<Archivo> nameList;
+  TableStructure open_files_table;
+  FreeSpaceManager free_space_manager;
+
   public:
-    SuperBloque();
-    void freeSuperBloque();
-    ~SuperBloque();
-    void showDiskFiles();
-    void diskClose(u_int fd);
-    int diskOpen(std::string nombre);
-    void diskRead(u_int fd, char* buffer);
-    void diskWrite(std::string texto, u_int fd);
-    void diskDelete(u_int fd);
-    u_int getSizebyFd(u_int fd);
-    void printDisk();   // print freespacemanager 0 as □(U+25A1) and 1 as ■(U+25A0)
+  SuperBloque();
+  ~SuperBloque();
+  void freeSuperBloque();
+
+  int diskOpen(std::string nombre);
+  void diskClose(u_int fd);
+  void diskRead(u_int fd, char* buffer);
+  void diskWrite(std::string texto, u_int fd);
+  void diskDelete(u_int fd);
+
+  void printDisk();
+  void showDiskFiles();
+  u_int getSizebyFd(u_int fd);
 };

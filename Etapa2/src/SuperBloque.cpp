@@ -7,7 +7,7 @@ SuperBloque::SuperBloque() {
   for (u_int i = 0; i < this->num_blocks; i++) {
     this->disco[i] = new char[this->block_size];
   }
-  this->mutex = Semaphore(1);
+  this->mutexDisco = Semaphore(1);
 }
 
 SuperBloque::~SuperBloque() {}
@@ -20,7 +20,7 @@ void SuperBloque::freeSuperBloque() {
 }
 
 int SuperBloque::diskOpen(std::string nombre) {
-  //this->mutex.wait();
+  //this->mutexDisco.wait();
   Archivo archivo = Archivo(nombre, "txt");
   auto it = std::find_if(nameList.begin(), nameList.end(), [&archivo](const Archivo& a) { return a == archivo; });
   if (it != nameList.end()) {
@@ -29,7 +29,7 @@ int SuperBloque::diskOpen(std::string nombre) {
       this->nameList.push_back(archivo);
       this->open_files_table.addEntrie(archivo);
   }
-  //this->mutex.signal();
+  //this->mutexDisco.signal();
   return this->open_files_table.getFD(nombre);
 }
 
@@ -38,11 +38,11 @@ void SuperBloque::diskClose(u_int fd) {
 }
 
 void SuperBloque::diskRead(u_int fd, char* buffer) {
-  //this->mutex.wait();
+  //this->mutexDisco.wait();
   std::string nombre = this->open_files_table.isFileOpen(fd);
   u_int fileIndex;
   if (nombre == "") {
-    // this->mutex.signal();
+    // this->mutexDisco.signal();
     return;
   }
   for (u_int i = 0; i < this->nameList.size(); i++) {
@@ -55,14 +55,14 @@ void SuperBloque::diskRead(u_int fd, char* buffer) {
     strncpy(buffer + i * 64, this->disco[this->nameList[fileIndex].indices[i]], 64);
   }
   buffer[this->nameList[fileIndex].indices.size() * 64] = '\0';
-  // this->mutex.signal();
+  // this->mutexDisco.signal();
 }
 
 void SuperBloque::diskWrite(std::string texto, u_int fd) {
-    // this->mutex.wait();
+    // this->mutexDisco.wait();
   std::string nombre = this->open_files_table.isFileOpen(fd);
   if (nombre == "") {
-    // this->mutex.signal();
+    // this->mutexDisco.signal();
     return;
   }
   Archivo miArchivo(nombre, "txt");
@@ -76,15 +76,15 @@ void SuperBloque::diskWrite(std::string texto, u_int fd) {
     strncpy(this->disco[index], fraccion.c_str(), 64);
     this->disco[sizeof(this->disco) - 1][0] = '\0';
   }
-    // this->mutex.signal();
+    // this->mutexDisco.signal();
   // this->nameList.push_back(miArchivo);
 }
 
 void SuperBloque::diskDelete(u_int fd) {
-  //this->mutex.wait();
+  //this->mutexDisco.wait();
   std::string nombre = this->open_files_table.isFileOpen(fd);
   if (nombre == "") {
-    //this->mutex.signal();
+    //this->mutexDisco.signal();
     return;
   }
   u_int nameIndex;
@@ -100,21 +100,21 @@ void SuperBloque::diskDelete(u_int fd) {
     this->free_space_manager.releaseBlock(indices[i]);
   }
   this->nameList.erase(this->nameList.begin() + nameIndex);
-  //this->mutex.signal();
+  //this->mutexDisco.signal();
 }
 
 void SuperBloque::showDiskFiles() {
-  // this->mutex.wait();
+  // this->mutexDisco.wait();
   std::cout << "Archivos en disco: " << std::endl;
   for (Archivo archivo : this->nameList) {
     std::cout << archivo.nombre << std::endl;
   }
-  // this->mutex.signal();
+  // this->mutexDisco.signal();
 }
 
    // print freespacemanager 0 as □(U+25A1) and 1 as ■(U+25A0)
 void SuperBloque::printDisk() {
-  // this->mutex.wait();
+  // this->mutexDisco.wait();
   std::cout << "Disco: " << std::endl;
   for (u_int i = 0; i < this->num_blocks; i++) {
     std::cout << "[";
@@ -127,7 +127,7 @@ void SuperBloque::printDisk() {
     }
     std::cout << "]" << std::endl;
   }
-  // this->mutex.signal();
+  // this->mutexDisco.signal();
 }
 
 u_int SuperBloque::getSizebyFd(u_int fd) {

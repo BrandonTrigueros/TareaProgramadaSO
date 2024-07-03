@@ -35,7 +35,7 @@ class Mailbox {
   /**
    * @brief Destructor de la clase Mailbox.
    */
-  ~Mailbox();
+  void destructor();
 
   /**
    * @brief Envía un mensaje a la cola de mensajes.

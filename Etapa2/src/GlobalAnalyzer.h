@@ -18,7 +18,11 @@ class GlobalAnalyzer {
   GlobalAnalyzer();
   ~GlobalAnalyzer();
   void setMailbox(Mailbox& mailbox);
-  void setSuperBloque(SuperBloque& superBloque);
   void setSemaphore(Semaphore& canConsume);
-  void run();
+  void recibirMensajes(u_int numMessages);
+  void guardarEnDisco(std::string nombre, std::string data);
+  void eliminarArchivo(std::string nombre);
+  void leerArchivo(std::string nombre);
+  void showDiskFiles();
+  void printDisk();
 };

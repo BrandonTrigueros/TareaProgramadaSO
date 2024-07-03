@@ -8,6 +8,7 @@
 #include <limits>
 #include <sys/wait.h>
 #include <unistd.h>
+#include <vector>
 
 class Menu {
 
@@ -16,7 +17,6 @@ class Menu {
   ~Menu();
   void run();
 
-  private:
   std::string menuPrincipal
       = "******************************************************\n"
         "*   BIENVENID@ A NUESTRO SISTEMA OPERATIVO SIMULADO  *\n"

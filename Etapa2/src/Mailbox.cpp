@@ -8,7 +8,11 @@ Mailbox::Mailbox() {
   }
 }
 
-Mailbox::~Mailbox() { }
+void Mailbox::destructor() {
+  if (msgctl(queue_id, IPC_RMID, NULL) == -1) {
+    perror("msgctl");
+  }
+}
 
 void Mailbox::SendMsg(std::string etiqueta, unsigned repeticiones) {
   for (u_int i = 0; i < repeticiones; i++) {
@@ -33,15 +37,7 @@ std::string Mailbox::RecieveMsg() {
   std::string etiqueta = "";
   Message msg;
 
-  // struct msqid_ds buf;
-  //  accessQueue.wait();
-  // if (msgctl(queue_id, IPC_STAT, &buf) == -1) {
-  //   perror("msgctl");
-  // }
-  // if (buf.msg_qnum > 0) {}
-
-  //! Cambio: msgflg 0 -> IPC_NOWAIT
-  int st = msgrcv(queue_id, &msg, sizeof(msg) - (sizeof(long)), 0, IPC_NOWAIT);
+  int st = msgrcv(queue_id, &msg, sizeof(msg) - (sizeof(long)), 0, 0);
   if (st == -1) {
     perror("msgrcv");
   } else {

@@ -6,22 +6,21 @@
 
 #include "Archivo.h"
 
-
-class TableStructure{
+class TableStructure {
   public:
-    std::map<u_int, Archivo> open_files;
+  std::map<u_int, Archivo*> open_files;
 
-    TableStructure() ;
+  TableStructure();
 
-    ~TableStructure() ;
+  ~TableStructure();
 
-    void addEntrie(Archivo arch);
+  void addEntrie(Archivo* arch);
 
-    void removeEntrie(u_int index);
+  void removeEntrie(u_int index);
 
-    u_int getFD(std::string nombre);
+  u_int getFD(std::string nombre);
 
-    std::string isFileOpen(u_int fd);
+  std::string isFileOpen(u_int fd);
 
-    u_int getSize(u_int fd);
+  u_int getSize(u_int fd);
 };

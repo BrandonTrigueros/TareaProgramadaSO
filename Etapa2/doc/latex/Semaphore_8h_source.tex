@@ -1,0 +1,38 @@
+\doxysection{Semaphore.\+h}
+\hypertarget{Semaphore_8h_source}{}\label{Semaphore_8h_source}\index{src/Semaphore.h@{src/Semaphore.h}}
+\mbox{\hyperlink{Semaphore_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SEMAPHORE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SEMAPHORE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <errno.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <sys/ipc.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <sys/sem.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ Constante\ que\ almacena\ el\ de\ carné.}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ KEY\ 0xC17899}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ Clase\ encargada\ de\ informar\ a\ un\ proceso\ cuándo\ continuar\ su\ operación.}}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSemaphore}{Semaphore}}\ \{}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{classSemaphore}{Semaphore}}(\textcolor{keywordtype}{int}\ valorInicial\ =\ 0);}
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSemaphore_a6599a35b05c7143a09f4921b2e23022c}{destructor}}();}
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSemaphore_a1d7c51da55f9ac913a6a711cb6d6e52a}{signal}}();}
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSemaphore_a85500356c2f7d1057d4568227e7f35b7}{wait}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classSemaphore_a43646fd8073939427b13ee36d08689a0}{id}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{comment}{//\ Estructura\ requerida\ por\ el\ semáforo.}}
+\DoxyCodeLine{00025\ \ \ \textcolor{keyword}{union\ }\mbox{\hyperlink{unionSemaphore_1_1semun}{semun}}\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{unionSemaphore_1_1semun_a9026882a15956daa25fce831e7d2248e}{val}};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{struct\ }semid\_ds*\ \mbox{\hyperlink{unionSemaphore_1_1semun_a6d68af8a1f9681050fa05e008857384d}{buf}};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}*\ \mbox{\hyperlink{unionSemaphore_1_1semun_a06395fee4279b99f0750ba7c24e8617d}{array}};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{struct\ }seminfo*\ \mbox{\hyperlink{unionSemaphore_1_1semun_a5434694fbdcbeb6748736076691734ff}{\_\_buf}};}
+\DoxyCodeLine{00030\ \ \ \};}
+\DoxyCodeLine{00031\ \};}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ SEMAPHORE\_H}}
+
+\end{DoxyCode}

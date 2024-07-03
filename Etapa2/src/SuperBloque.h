@@ -16,6 +16,9 @@
 #include "Semaphore.h"
 #include "TableStructure.h"
 
+/**
+ * @brief Interfaz de acceso a la información del disco con las syscalls simuladas.
+ */
 class SuperBloque {
   private:
   char** disco;  /// Disco virtual -> Hacer memoria virutal
@@ -28,7 +31,9 @@ class SuperBloque {
 
   public:
   SuperBloque();
+
   ~SuperBloque();
+  
   void destructor();
 
   // Systemcalls

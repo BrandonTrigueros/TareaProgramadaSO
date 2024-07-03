@@ -1,0 +1,99 @@
+\doxysection{Mailbox Class Reference}
+\hypertarget{classMailbox}{}\label{classMailbox}\index{Mailbox@{Mailbox}}
+
+
+Buzón de envío de mensajes entre procesos.  
+
+
+
+
+{\ttfamily \#include $<$Mailbox.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMailbox_ad5d352e76921c9c854d1d9aaa07f9f38}{Mailbox}} ()
+\begin{DoxyCompactList}\small\item\em ID de la cola de para el envío de mensajes entre procesos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMailbox_a92be846f9baa9e91f4c8e2ff31f8f2c3}{destructor}} ()
+\begin{DoxyCompactList}\small\item\em Destructor de la clase \doxylink{classMailbox}{Mailbox}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMailbox_ac7268c7c7a66f6890af69473c29f8438}{Send\+Msg}} (std\+::string etiqueta, unsigned repeticiones)
+\begin{DoxyCompactList}\small\item\em Envía un mensaje a la cola de mensajes. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classMailbox_a78c63915c63efab6969287d0a0e203f7}{Recieve\+Msg}} ()
+\begin{DoxyCompactList}\small\item\em Recibe un mensaje de la cola de mensajes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classMailbox_a816fcc9c50baf79f5826765a7b4b1f26}{queue\+\_\+id}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Buzón de envío de mensajes entre procesos. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMailbox_ad5d352e76921c9c854d1d9aaa07f9f38}\label{classMailbox_ad5d352e76921c9c854d1d9aaa07f9f38} 
+\index{Mailbox@{Mailbox}!Mailbox@{Mailbox}}
+\index{Mailbox@{Mailbox}!Mailbox@{Mailbox}}
+\doxysubsubsection{\texorpdfstring{Mailbox()}{Mailbox()}}
+{\footnotesize\ttfamily Mailbox\+::\+Mailbox (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+ID de la cola de para el envío de mensajes entre procesos. 
+
+Constructor de la clase \doxylink{classMailbox}{Mailbox}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMailbox_a92be846f9baa9e91f4c8e2ff31f8f2c3}\label{classMailbox_a92be846f9baa9e91f4c8e2ff31f8f2c3} 
+\index{Mailbox@{Mailbox}!destructor@{destructor}}
+\index{destructor@{destructor}!Mailbox@{Mailbox}}
+\doxysubsubsection{\texorpdfstring{destructor()}{destructor()}}
+{\footnotesize\ttfamily void Mailbox\+::destructor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor de la clase \doxylink{classMailbox}{Mailbox}. 
+
+\Hypertarget{classMailbox_a78c63915c63efab6969287d0a0e203f7}\label{classMailbox_a78c63915c63efab6969287d0a0e203f7} 
+\index{Mailbox@{Mailbox}!RecieveMsg@{RecieveMsg}}
+\index{RecieveMsg@{RecieveMsg}!Mailbox@{Mailbox}}
+\doxysubsubsection{\texorpdfstring{RecieveMsg()}{RecieveMsg()}}
+{\footnotesize\ttfamily std\+::string Mailbox\+::\+Recieve\+Msg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Recibe un mensaje de la cola de mensajes. 
+
+\begin{DoxyReturn}{Returns}
+El mensaje recibido. 
+\end{DoxyReturn}
+\Hypertarget{classMailbox_ac7268c7c7a66f6890af69473c29f8438}\label{classMailbox_ac7268c7c7a66f6890af69473c29f8438} 
+\index{Mailbox@{Mailbox}!SendMsg@{SendMsg}}
+\index{SendMsg@{SendMsg}!Mailbox@{Mailbox}}
+\doxysubsubsection{\texorpdfstring{SendMsg()}{SendMsg()}}
+{\footnotesize\ttfamily void Mailbox\+::\+Send\+Msg (\begin{DoxyParamCaption}\item[{std\+::string}]{etiqueta,  }\item[{unsigned}]{repeticiones }\end{DoxyParamCaption})}
+
+
+
+Envía un mensaje a la cola de mensajes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & El mensaje a enviar. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classMailbox_a816fcc9c50baf79f5826765a7b4b1f26}\label{classMailbox_a816fcc9c50baf79f5826765a7b4b1f26} 
+\index{Mailbox@{Mailbox}!queue\_id@{queue\_id}}
+\index{queue\_id@{queue\_id}!Mailbox@{Mailbox}}
+\doxysubsubsection{\texorpdfstring{queue\_id}{queue\_id}}
+{\footnotesize\ttfamily int Mailbox\+::queue\+\_\+id}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{Mailbox_8h}{Mailbox.\+h}}\item 
+src/\mbox{\hyperlink{Mailbox_8cpp}{Mailbox.\+cpp}}\end{DoxyCompactItemize}

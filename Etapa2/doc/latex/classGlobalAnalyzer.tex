@@ -1,0 +1,177 @@
+\doxysection{Global\+Analyzer Class Reference}
+\hypertarget{classGlobalAnalyzer}{}\label{classGlobalAnalyzer}\index{GlobalAnalyzer@{GlobalAnalyzer}}
+
+
+Intermediario entre procesos que quieren acceder al disco.  
+
+
+
+
+{\ttfamily \#include $<$Global\+Analyzer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGlobalAnalyzer_a234e52c61fdccaa886b931f318ed8ffd}{Global\+Analyzer}} ()
+\begin{DoxyCompactList}\small\item\em Semáforo de acceso al mailbox. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGlobalAnalyzer_ab445cfa8e6f06a17d048aca1461c5a8f}{\texorpdfstring{$\sim$}{\string~}\+Global\+Analyzer}} ()
+\item 
+void \mbox{\hyperlink{classGlobalAnalyzer_a4672152aed1ae28ca9469f6c52971334}{set\+Mailbox}} (\mbox{\hyperlink{classMailbox}{Mailbox}} \&mailbox)
+\begin{DoxyCompactList}\small\item\em Setter para el mailbox de la clase. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGlobalAnalyzer_aee8b3b499f77174dce819d452678812a}{set\+Semaphore}} (\mbox{\hyperlink{classSemaphore}{Semaphore}} \&can\+Consume)
+\begin{DoxyCompactList}\small\item\em Setter para el semáforo de la clase. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGlobalAnalyzer_a79cd2f99e8f744d47930ea1f716abb82}{recibir\+Mensajes}} (u\+\_\+int num\+Messages)
+\begin{DoxyCompactList}\small\item\em Recibe una cantidad determinada de mensajes del mailbox. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGlobalAnalyzer_a339677b40b9ee4e1ff4d1dd51bacc26e}{guardar\+En\+Disco}} (std\+::string nombre, std\+::string data)
+\begin{DoxyCompactList}\small\item\em Guarda en el disco un archivo de texto. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGlobalAnalyzer_a32fd34a0ea09f566fb26993c6113fba2}{eliminar\+Archivo}} (std\+::string nombre)
+\begin{DoxyCompactList}\small\item\em Elimina un archivo del disco. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGlobalAnalyzer_acd9693d18acc0907e868ce5dba6ff649}{leer\+Archivo}} (std\+::string nombre)
+\begin{DoxyCompactList}\small\item\em Lee el contenido de un archivo del disco. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGlobalAnalyzer_ae2db28f340351f43eb0b82ec194d0924}{show\+Disk\+Files}} ()
+\begin{DoxyCompactList}\small\item\em Muestra el nombre de los archivos almacenados en el disco. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGlobalAnalyzer_abf60ca903d413ee6d6c2686c8e31c418}{print\+Disk}} ()
+\begin{DoxyCompactList}\small\item\em Imprime una representación de los bloques libres y ocupados del disco. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Intermediario entre procesos que quieren acceder al disco. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classGlobalAnalyzer_a234e52c61fdccaa886b931f318ed8ffd}\label{classGlobalAnalyzer_a234e52c61fdccaa886b931f318ed8ffd} 
+\index{GlobalAnalyzer@{GlobalAnalyzer}!GlobalAnalyzer@{GlobalAnalyzer}}
+\index{GlobalAnalyzer@{GlobalAnalyzer}!GlobalAnalyzer@{GlobalAnalyzer}}
+\doxysubsubsection{\texorpdfstring{GlobalAnalyzer()}{GlobalAnalyzer()}}
+{\footnotesize\ttfamily Global\+Analyzer\+::\+Global\+Analyzer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Semáforo de acceso al mailbox. 
+
+\Hypertarget{classGlobalAnalyzer_ab445cfa8e6f06a17d048aca1461c5a8f}\label{classGlobalAnalyzer_ab445cfa8e6f06a17d048aca1461c5a8f} 
+\index{GlobalAnalyzer@{GlobalAnalyzer}!````~GlobalAnalyzer@{\texorpdfstring{$\sim$}{\string~}GlobalAnalyzer}}
+\index{````~GlobalAnalyzer@{\texorpdfstring{$\sim$}{\string~}GlobalAnalyzer}!GlobalAnalyzer@{GlobalAnalyzer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}GlobalAnalyzer()}{\string~GlobalAnalyzer()}}
+{\footnotesize\ttfamily Global\+Analyzer\+::\texorpdfstring{$\sim$}{\string~}\+Global\+Analyzer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGlobalAnalyzer_a32fd34a0ea09f566fb26993c6113fba2}\label{classGlobalAnalyzer_a32fd34a0ea09f566fb26993c6113fba2} 
+\index{GlobalAnalyzer@{GlobalAnalyzer}!eliminarArchivo@{eliminarArchivo}}
+\index{eliminarArchivo@{eliminarArchivo}!GlobalAnalyzer@{GlobalAnalyzer}}
+\doxysubsubsection{\texorpdfstring{eliminarArchivo()}{eliminarArchivo()}}
+{\footnotesize\ttfamily void Global\+Analyzer\+::eliminar\+Archivo (\begin{DoxyParamCaption}\item[{std\+::string}]{nombre }\end{DoxyParamCaption})}
+
+
+
+Elimina un archivo del disco. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre} & NOmbre identificador del archivo que se quiere eliminar del disco. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGlobalAnalyzer_a339677b40b9ee4e1ff4d1dd51bacc26e}\label{classGlobalAnalyzer_a339677b40b9ee4e1ff4d1dd51bacc26e} 
+\index{GlobalAnalyzer@{GlobalAnalyzer}!guardarEnDisco@{guardarEnDisco}}
+\index{guardarEnDisco@{guardarEnDisco}!GlobalAnalyzer@{GlobalAnalyzer}}
+\doxysubsubsection{\texorpdfstring{guardarEnDisco()}{guardarEnDisco()}}
+{\footnotesize\ttfamily void Global\+Analyzer\+::guardar\+En\+Disco (\begin{DoxyParamCaption}\item[{std\+::string}]{nombre,  }\item[{std\+::string}]{data }\end{DoxyParamCaption})}
+
+
+
+Guarda en el disco un archivo de texto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre} & Nombre del archivo de texto que se quiere guardar en el disco. \\
+\hline
+{\em data} & Texto que será guardado en el disco. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGlobalAnalyzer_acd9693d18acc0907e868ce5dba6ff649}\label{classGlobalAnalyzer_acd9693d18acc0907e868ce5dba6ff649} 
+\index{GlobalAnalyzer@{GlobalAnalyzer}!leerArchivo@{leerArchivo}}
+\index{leerArchivo@{leerArchivo}!GlobalAnalyzer@{GlobalAnalyzer}}
+\doxysubsubsection{\texorpdfstring{leerArchivo()}{leerArchivo()}}
+{\footnotesize\ttfamily void Global\+Analyzer\+::leer\+Archivo (\begin{DoxyParamCaption}\item[{std\+::string}]{nombre }\end{DoxyParamCaption})}
+
+
+
+Lee el contenido de un archivo del disco. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre} & Nombre identificador del archivo del disco que se quiere leer. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGlobalAnalyzer_abf60ca903d413ee6d6c2686c8e31c418}\label{classGlobalAnalyzer_abf60ca903d413ee6d6c2686c8e31c418} 
+\index{GlobalAnalyzer@{GlobalAnalyzer}!printDisk@{printDisk}}
+\index{printDisk@{printDisk}!GlobalAnalyzer@{GlobalAnalyzer}}
+\doxysubsubsection{\texorpdfstring{printDisk()}{printDisk()}}
+{\footnotesize\ttfamily void Global\+Analyzer\+::print\+Disk (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Imprime una representación de los bloques libres y ocupados del disco. 
+
+\Hypertarget{classGlobalAnalyzer_a79cd2f99e8f744d47930ea1f716abb82}\label{classGlobalAnalyzer_a79cd2f99e8f744d47930ea1f716abb82} 
+\index{GlobalAnalyzer@{GlobalAnalyzer}!recibirMensajes@{recibirMensajes}}
+\index{recibirMensajes@{recibirMensajes}!GlobalAnalyzer@{GlobalAnalyzer}}
+\doxysubsubsection{\texorpdfstring{recibirMensajes()}{recibirMensajes()}}
+{\footnotesize\ttfamily void Global\+Analyzer\+::recibir\+Mensajes (\begin{DoxyParamCaption}\item[{u\+\_\+int}]{num\+Messages }\end{DoxyParamCaption})}
+
+
+
+Recibe una cantidad determinada de mensajes del mailbox. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Messages} & Cantidad de mensajes que se leerán del mailbox. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGlobalAnalyzer_a4672152aed1ae28ca9469f6c52971334}\label{classGlobalAnalyzer_a4672152aed1ae28ca9469f6c52971334} 
+\index{GlobalAnalyzer@{GlobalAnalyzer}!setMailbox@{setMailbox}}
+\index{setMailbox@{setMailbox}!GlobalAnalyzer@{GlobalAnalyzer}}
+\doxysubsubsection{\texorpdfstring{setMailbox()}{setMailbox()}}
+{\footnotesize\ttfamily void Global\+Analyzer\+::set\+Mailbox (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMailbox}{Mailbox}} \&}]{mailbox }\end{DoxyParamCaption})}
+
+
+
+Setter para el mailbox de la clase. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mailbox} & Objeto mailbox para setear el atributo de la clase. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGlobalAnalyzer_aee8b3b499f77174dce819d452678812a}\label{classGlobalAnalyzer_aee8b3b499f77174dce819d452678812a} 
+\index{GlobalAnalyzer@{GlobalAnalyzer}!setSemaphore@{setSemaphore}}
+\index{setSemaphore@{setSemaphore}!GlobalAnalyzer@{GlobalAnalyzer}}
+\doxysubsubsection{\texorpdfstring{setSemaphore()}{setSemaphore()}}
+{\footnotesize\ttfamily void Global\+Analyzer\+::set\+Semaphore (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSemaphore}{Semaphore}} \&}]{can\+Consume }\end{DoxyParamCaption})}
+
+
+
+Setter para el semáforo de la clase. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em can\+Consume} & Objeto semaphore para setear el atributo de la clase. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classGlobalAnalyzer_ae2db28f340351f43eb0b82ec194d0924}\label{classGlobalAnalyzer_ae2db28f340351f43eb0b82ec194d0924} 
+\index{GlobalAnalyzer@{GlobalAnalyzer}!showDiskFiles@{showDiskFiles}}
+\index{showDiskFiles@{showDiskFiles}!GlobalAnalyzer@{GlobalAnalyzer}}
+\doxysubsubsection{\texorpdfstring{showDiskFiles()}{showDiskFiles()}}
+{\footnotesize\ttfamily void Global\+Analyzer\+::show\+Disk\+Files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Muestra el nombre de los archivos almacenados en el disco. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{GlobalAnalyzer_8h}{Global\+Analyzer.\+h}}\item 
+src/\mbox{\hyperlink{GlobalAnalyzer_8cpp}{Global\+Analyzer.\+cpp}}\end{DoxyCompactItemize}

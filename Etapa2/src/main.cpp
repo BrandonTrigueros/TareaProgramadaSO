@@ -17,21 +17,3 @@ int main() {
   menu.run();
   return 0;
 }
-
-// int main() {
-// Menu menu;
-// GlobalAnalyzer globalAnalyzer;
-// globalAnalyzer.guardarEnDisco("test.txt", menu.menuPrincipal);
-// globalAnalyzer.leerArchivo("test.txt");
-
-// int PID = fork();
-// if (PID == 0) {
-//   globalAnalyzer.guardarEnDisco("test.txt", "Hola Mundo");
-// }
-
-// u_int size = superBloque.getSizebyFd(fd);
-// std::cout << "Size: " << size << std::endl;
-// char buffer[size];
-// superBloque.diskRead(fd, buffer);
-// std::cout << buffer << std::endl;
-// }

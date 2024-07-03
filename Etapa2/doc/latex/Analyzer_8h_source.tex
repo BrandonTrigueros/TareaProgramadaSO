@@ -1,0 +1,38 @@
+\doxysection{Analyzer.\+h}
+\hypertarget{Analyzer_8h_source}{}\label{Analyzer_8h_source}\index{src/Analyzer.h@{src/Analyzer.h}}
+\mbox{\hyperlink{Analyzer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Mailbox_8h}{Mailbox.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <netdb.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <regex>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <sys/socket.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classAnalyzer}{Analyzer}}\ \{}
+\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{classAnalyzer_a1be2ff17bba265bdef6e1b44748eaf96}{Analyzer}}();}
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{classAnalyzer_afa899ac3a6aabbe59f791f69368ad740}{\string~Analyzer}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classAnalyzer_aef614e6ae37b5ff00596eda5e670345a}{sendMessage}}(std::string\ url,\ \mbox{\hyperlink{classMailbox}{Mailbox}}\ mailbox);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00039\ \ \ std::string\ \mbox{\hyperlink{classAnalyzer_aa518a596e883c373f2e720d0032f9a56}{getString}}(std::string\ url);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00047\ \ \ std::string\ getHTML(std::string\ url);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00054\ \ \ std::string\ analizeHTML(std::string\ html);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00061\ \ \ std::string\ analyzeTags(std::string\ tags);}
+\DoxyCodeLine{00062\ \};}
+
+\end{DoxyCode}

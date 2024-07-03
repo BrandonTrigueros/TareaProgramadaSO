@@ -54,9 +54,9 @@ class Analyzer {
   std::string analizeHTML(std::string html);
 
   /**
-   * @brief Cuenta y formatea las etiquetas obtenidas del url
-   * @param tags Texto con todas las tags de un HTML
-   * @return Retorna las tags contadas
+   * @brief Cuenta y formatea las etiquetas obtenidas del url.
+   * @param tags Texto con todas las tags de un HTML.
+   * @return Retorna las tags contadas.
    */
   std::string analyzeTags(std::string tags);
 };

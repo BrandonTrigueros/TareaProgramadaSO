@@ -10,6 +10,7 @@
 #include <unistd.h>
 #include <vector>
 
+/// @brief Interfaz para el usuario para poder manipular el disco duro.
 class Menu {
 
   public:

@@ -1,0 +1,110 @@
+\doxysection{Free\+Space\+Manager Class Reference}
+\hypertarget{classFreeSpaceManager}{}\label{classFreeSpaceManager}\index{FreeSpaceManager@{FreeSpaceManager}}
+
+
+Gestor de espacio del disco.  
+
+
+
+
+{\ttfamily \#include $<$Free\+Space\+Manager.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classFreeSpaceManager_ad9735a34080bdca9415aa0a13b718217}{Free\+Space\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Representación de los bloques libres del disco. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classFreeSpaceManager_a1506285ce3ff60dc95a1305665836055}{\texorpdfstring{$\sim$}{\string~}\+Free\+Space\+Manager}} ()
+\item 
+u\+\_\+int \mbox{\hyperlink{classFreeSpaceManager_a31941bde9cfba1e3012640b938fc97b3}{get\+Free\+Block}} ()
+\begin{DoxyCompactList}\small\item\em Indica el próximo bloque libre en el disco. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFreeSpaceManager_a6dea00180bb8509d823d72b01feb4964}{reserve\+Block}} (u\+\_\+int block)
+\begin{DoxyCompactList}\small\item\em Reserva un bloque del disco. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFreeSpaceManager_a2d6279e290999edb88f0853e6b596334}{release\+Block}} (u\+\_\+int block)
+\begin{DoxyCompactList}\small\item\em Libera un bloque en el disco. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classFreeSpaceManager_a81c7c8b355dc2b871f6e64609c229fa0}{print}} ()
+\begin{DoxyCompactList}\small\item\em Imprime una representación de los bloques libres y vacios del disco. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gestor de espacio del disco. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classFreeSpaceManager_ad9735a34080bdca9415aa0a13b718217}\label{classFreeSpaceManager_ad9735a34080bdca9415aa0a13b718217} 
+\index{FreeSpaceManager@{FreeSpaceManager}!FreeSpaceManager@{FreeSpaceManager}}
+\index{FreeSpaceManager@{FreeSpaceManager}!FreeSpaceManager@{FreeSpaceManager}}
+\doxysubsubsection{\texorpdfstring{FreeSpaceManager()}{FreeSpaceManager()}}
+{\footnotesize\ttfamily Free\+Space\+Manager\+::\+Free\+Space\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Representación de los bloques libres del disco. 
+
+\Hypertarget{classFreeSpaceManager_a1506285ce3ff60dc95a1305665836055}\label{classFreeSpaceManager_a1506285ce3ff60dc95a1305665836055} 
+\index{FreeSpaceManager@{FreeSpaceManager}!````~FreeSpaceManager@{\texorpdfstring{$\sim$}{\string~}FreeSpaceManager}}
+\index{````~FreeSpaceManager@{\texorpdfstring{$\sim$}{\string~}FreeSpaceManager}!FreeSpaceManager@{FreeSpaceManager}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}FreeSpaceManager()}{\string~FreeSpaceManager()}}
+{\footnotesize\ttfamily Free\+Space\+Manager\+::\texorpdfstring{$\sim$}{\string~}\+Free\+Space\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classFreeSpaceManager_a31941bde9cfba1e3012640b938fc97b3}\label{classFreeSpaceManager_a31941bde9cfba1e3012640b938fc97b3} 
+\index{FreeSpaceManager@{FreeSpaceManager}!getFreeBlock@{getFreeBlock}}
+\index{getFreeBlock@{getFreeBlock}!FreeSpaceManager@{FreeSpaceManager}}
+\doxysubsubsection{\texorpdfstring{getFreeBlock()}{getFreeBlock()}}
+{\footnotesize\ttfamily u\+\_\+int Free\+Space\+Manager\+::get\+Free\+Block (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Indica el próximo bloque libre en el disco. 
+
+\begin{DoxyReturn}{Returns}
+Retorna el índice del próximo bloque libre del disco. 
+\end{DoxyReturn}
+\Hypertarget{classFreeSpaceManager_a81c7c8b355dc2b871f6e64609c229fa0}\label{classFreeSpaceManager_a81c7c8b355dc2b871f6e64609c229fa0} 
+\index{FreeSpaceManager@{FreeSpaceManager}!print@{print}}
+\index{print@{print}!FreeSpaceManager@{FreeSpaceManager}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Free\+Space\+Manager\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Imprime una representación de los bloques libres y vacios del disco. 
+
+\Hypertarget{classFreeSpaceManager_a2d6279e290999edb88f0853e6b596334}\label{classFreeSpaceManager_a2d6279e290999edb88f0853e6b596334} 
+\index{FreeSpaceManager@{FreeSpaceManager}!releaseBlock@{releaseBlock}}
+\index{releaseBlock@{releaseBlock}!FreeSpaceManager@{FreeSpaceManager}}
+\doxysubsubsection{\texorpdfstring{releaseBlock()}{releaseBlock()}}
+{\footnotesize\ttfamily void Free\+Space\+Manager\+::release\+Block (\begin{DoxyParamCaption}\item[{u\+\_\+int}]{block }\end{DoxyParamCaption})}
+
+
+
+Libera un bloque en el disco. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em block} & Índice del bloque que quiere ser liberado en el disco. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classFreeSpaceManager_a6dea00180bb8509d823d72b01feb4964}\label{classFreeSpaceManager_a6dea00180bb8509d823d72b01feb4964} 
+\index{FreeSpaceManager@{FreeSpaceManager}!reserveBlock@{reserveBlock}}
+\index{reserveBlock@{reserveBlock}!FreeSpaceManager@{FreeSpaceManager}}
+\doxysubsubsection{\texorpdfstring{reserveBlock()}{reserveBlock()}}
+{\footnotesize\ttfamily void Free\+Space\+Manager\+::reserve\+Block (\begin{DoxyParamCaption}\item[{u\+\_\+int}]{block }\end{DoxyParamCaption})}
+
+
+
+Reserva un bloque del disco. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em block} & índice que quiere ser reservado en el disco. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{FreeSpaceManager_8h}{Free\+Space\+Manager.\+h}}\item 
+src/\mbox{\hyperlink{FreeSpaceManager_8cpp}{Free\+Space\+Manager.\+cpp}}\end{DoxyCompactItemize}

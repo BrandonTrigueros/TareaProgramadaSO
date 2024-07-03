@@ -1,0 +1,149 @@
+\doxysection{Super\+Bloque Class Reference}
+\hypertarget{classSuperBloque}{}\label{classSuperBloque}\index{SuperBloque@{SuperBloque}}
+
+
+Interfaz de acceso a la información del disco con las syscalls simuladas.  
+
+
+
+
+{\ttfamily \#include $<$Super\+Bloque.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSuperBloque_a29cf7632a8e35931624a44088e25c004}{Super\+Bloque}} ()
+\begin{DoxyCompactList}\small\item\em Administrador de espacio libre. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSuperBloque_ab2f3e49319cde36adb1f4a07c4b63105}{\texorpdfstring{$\sim$}{\string~}\+Super\+Bloque}} ()
+\item 
+void \mbox{\hyperlink{classSuperBloque_af1d442ea0619be4d4bf832333632f8c1}{destructor}} ()
+\item 
+int \mbox{\hyperlink{classSuperBloque_a9cb106c95bba74f2b445bede94f03a96}{disk\+Open}} (std\+::string nombre)
+\item 
+void \mbox{\hyperlink{classSuperBloque_a71b7b4268607334abf36dec586dcc574}{disk\+Close}} (u\+\_\+int fd)
+\item 
+void \mbox{\hyperlink{classSuperBloque_a1ab0ff691510a132de465948466630a8}{disk\+Read}} (u\+\_\+int fd, char \texorpdfstring{$\ast$}{*}buffer)
+\item 
+void \mbox{\hyperlink{classSuperBloque_a7a79f0f67b14ec41d583bcd092927937}{disk\+Write}} (std\+::string texto, u\+\_\+int fd)
+\item 
+void \mbox{\hyperlink{classSuperBloque_aa6dfa73e0aa6bd139ff9373c4ba924d6}{disk\+Delete}} (u\+\_\+int fd)
+\item 
+void \mbox{\hyperlink{classSuperBloque_a36fbc47b92b39a8cecb9626b5c78d776}{print\+Disco}} ()
+\begin{DoxyCompactList}\small\item\em Auxiliares. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSuperBloque_a9d5664586c9fdea64996c16d65900ed6}{print\+Bloques}} ()
+\item 
+void \mbox{\hyperlink{classSuperBloque_ad7537ddf1c5d9deff871faed5034eb17}{show\+Disk\+Files}} ()
+\item 
+u\+\_\+int \mbox{\hyperlink{classSuperBloque_ac4dd43141db77cf3e1af2b1d1cea6dcf}{get\+Sizeby\+Fd}} (u\+\_\+int fd)
+\item 
+char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classSuperBloque_adcf902fee206e52f2abf0368561953de}{get\+Disco}} ()
+\item 
+\mbox{\hyperlink{classArchivo}{Archivo}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classSuperBloque_ac04f9e879fee1f20c3705ec2ffce0a3f}{get\+Archivo}} (u\+\_\+int fd)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfaz de acceso a la información del disco con las syscalls simuladas. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classSuperBloque_a29cf7632a8e35931624a44088e25c004}\label{classSuperBloque_a29cf7632a8e35931624a44088e25c004} 
+\index{SuperBloque@{SuperBloque}!SuperBloque@{SuperBloque}}
+\index{SuperBloque@{SuperBloque}!SuperBloque@{SuperBloque}}
+\doxysubsubsection{\texorpdfstring{SuperBloque()}{SuperBloque()}}
+{\footnotesize\ttfamily Super\+Bloque\+::\+Super\+Bloque (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Administrador de espacio libre. 
+
+\Hypertarget{classSuperBloque_ab2f3e49319cde36adb1f4a07c4b63105}\label{classSuperBloque_ab2f3e49319cde36adb1f4a07c4b63105} 
+\index{SuperBloque@{SuperBloque}!````~SuperBloque@{\texorpdfstring{$\sim$}{\string~}SuperBloque}}
+\index{````~SuperBloque@{\texorpdfstring{$\sim$}{\string~}SuperBloque}!SuperBloque@{SuperBloque}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SuperBloque()}{\string~SuperBloque()}}
+{\footnotesize\ttfamily Super\+Bloque\+::\texorpdfstring{$\sim$}{\string~}\+Super\+Bloque (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSuperBloque_af1d442ea0619be4d4bf832333632f8c1}\label{classSuperBloque_af1d442ea0619be4d4bf832333632f8c1} 
+\index{SuperBloque@{SuperBloque}!destructor@{destructor}}
+\index{destructor@{destructor}!SuperBloque@{SuperBloque}}
+\doxysubsubsection{\texorpdfstring{destructor()}{destructor()}}
+{\footnotesize\ttfamily void Super\+Bloque\+::destructor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classSuperBloque_a71b7b4268607334abf36dec586dcc574}\label{classSuperBloque_a71b7b4268607334abf36dec586dcc574} 
+\index{SuperBloque@{SuperBloque}!diskClose@{diskClose}}
+\index{diskClose@{diskClose}!SuperBloque@{SuperBloque}}
+\doxysubsubsection{\texorpdfstring{diskClose()}{diskClose()}}
+{\footnotesize\ttfamily void Super\+Bloque\+::disk\+Close (\begin{DoxyParamCaption}\item[{u\+\_\+int}]{fd }\end{DoxyParamCaption})}
+
+\Hypertarget{classSuperBloque_aa6dfa73e0aa6bd139ff9373c4ba924d6}\label{classSuperBloque_aa6dfa73e0aa6bd139ff9373c4ba924d6} 
+\index{SuperBloque@{SuperBloque}!diskDelete@{diskDelete}}
+\index{diskDelete@{diskDelete}!SuperBloque@{SuperBloque}}
+\doxysubsubsection{\texorpdfstring{diskDelete()}{diskDelete()}}
+{\footnotesize\ttfamily void Super\+Bloque\+::disk\+Delete (\begin{DoxyParamCaption}\item[{u\+\_\+int}]{fd }\end{DoxyParamCaption})}
+
+\Hypertarget{classSuperBloque_a9cb106c95bba74f2b445bede94f03a96}\label{classSuperBloque_a9cb106c95bba74f2b445bede94f03a96} 
+\index{SuperBloque@{SuperBloque}!diskOpen@{diskOpen}}
+\index{diskOpen@{diskOpen}!SuperBloque@{SuperBloque}}
+\doxysubsubsection{\texorpdfstring{diskOpen()}{diskOpen()}}
+{\footnotesize\ttfamily int Super\+Bloque\+::disk\+Open (\begin{DoxyParamCaption}\item[{std\+::string}]{nombre }\end{DoxyParamCaption})}
+
+\Hypertarget{classSuperBloque_a1ab0ff691510a132de465948466630a8}\label{classSuperBloque_a1ab0ff691510a132de465948466630a8} 
+\index{SuperBloque@{SuperBloque}!diskRead@{diskRead}}
+\index{diskRead@{diskRead}!SuperBloque@{SuperBloque}}
+\doxysubsubsection{\texorpdfstring{diskRead()}{diskRead()}}
+{\footnotesize\ttfamily void Super\+Bloque\+::disk\+Read (\begin{DoxyParamCaption}\item[{u\+\_\+int}]{fd,  }\item[{char \texorpdfstring{$\ast$}{*}}]{buffer }\end{DoxyParamCaption})}
+
+\Hypertarget{classSuperBloque_a7a79f0f67b14ec41d583bcd092927937}\label{classSuperBloque_a7a79f0f67b14ec41d583bcd092927937} 
+\index{SuperBloque@{SuperBloque}!diskWrite@{diskWrite}}
+\index{diskWrite@{diskWrite}!SuperBloque@{SuperBloque}}
+\doxysubsubsection{\texorpdfstring{diskWrite()}{diskWrite()}}
+{\footnotesize\ttfamily void Super\+Bloque\+::disk\+Write (\begin{DoxyParamCaption}\item[{std\+::string}]{texto,  }\item[{u\+\_\+int}]{fd }\end{DoxyParamCaption})}
+
+\Hypertarget{classSuperBloque_ac04f9e879fee1f20c3705ec2ffce0a3f}\label{classSuperBloque_ac04f9e879fee1f20c3705ec2ffce0a3f} 
+\index{SuperBloque@{SuperBloque}!getArchivo@{getArchivo}}
+\index{getArchivo@{getArchivo}!SuperBloque@{SuperBloque}}
+\doxysubsubsection{\texorpdfstring{getArchivo()}{getArchivo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classArchivo}{Archivo}} \texorpdfstring{$\ast$}{*} Super\+Bloque\+::get\+Archivo (\begin{DoxyParamCaption}\item[{u\+\_\+int}]{fd }\end{DoxyParamCaption})}
+
+\Hypertarget{classSuperBloque_adcf902fee206e52f2abf0368561953de}\label{classSuperBloque_adcf902fee206e52f2abf0368561953de} 
+\index{SuperBloque@{SuperBloque}!getDisco@{getDisco}}
+\index{getDisco@{getDisco}!SuperBloque@{SuperBloque}}
+\doxysubsubsection{\texorpdfstring{getDisco()}{getDisco()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Super\+Bloque\+::get\+Disco (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classSuperBloque_ac4dd43141db77cf3e1af2b1d1cea6dcf}\label{classSuperBloque_ac4dd43141db77cf3e1af2b1d1cea6dcf} 
+\index{SuperBloque@{SuperBloque}!getSizebyFd@{getSizebyFd}}
+\index{getSizebyFd@{getSizebyFd}!SuperBloque@{SuperBloque}}
+\doxysubsubsection{\texorpdfstring{getSizebyFd()}{getSizebyFd()}}
+{\footnotesize\ttfamily u\+\_\+int Super\+Bloque\+::get\+Sizeby\+Fd (\begin{DoxyParamCaption}\item[{u\+\_\+int}]{fd }\end{DoxyParamCaption})}
+
+\Hypertarget{classSuperBloque_a9d5664586c9fdea64996c16d65900ed6}\label{classSuperBloque_a9d5664586c9fdea64996c16d65900ed6} 
+\index{SuperBloque@{SuperBloque}!printBloques@{printBloques}}
+\index{printBloques@{printBloques}!SuperBloque@{SuperBloque}}
+\doxysubsubsection{\texorpdfstring{printBloques()}{printBloques()}}
+{\footnotesize\ttfamily void Super\+Bloque\+::print\+Bloques (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classSuperBloque_a36fbc47b92b39a8cecb9626b5c78d776}\label{classSuperBloque_a36fbc47b92b39a8cecb9626b5c78d776} 
+\index{SuperBloque@{SuperBloque}!printDisco@{printDisco}}
+\index{printDisco@{printDisco}!SuperBloque@{SuperBloque}}
+\doxysubsubsection{\texorpdfstring{printDisco()}{printDisco()}}
+{\footnotesize\ttfamily void Super\+Bloque\+::print\+Disco (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Auxiliares. 
+
+\Hypertarget{classSuperBloque_ad7537ddf1c5d9deff871faed5034eb17}\label{classSuperBloque_ad7537ddf1c5d9deff871faed5034eb17} 
+\index{SuperBloque@{SuperBloque}!showDiskFiles@{showDiskFiles}}
+\index{showDiskFiles@{showDiskFiles}!SuperBloque@{SuperBloque}}
+\doxysubsubsection{\texorpdfstring{showDiskFiles()}{showDiskFiles()}}
+{\footnotesize\ttfamily void Super\+Bloque\+::show\+Disk\+Files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{SuperBloque_8h}{Super\+Bloque.\+h}}\item 
+src/\mbox{\hyperlink{SuperBloque_8cpp}{Super\+Bloque.\+cpp}}\end{DoxyCompactItemize}

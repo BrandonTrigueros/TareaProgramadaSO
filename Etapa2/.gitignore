@@ -1,0 +1,30 @@
+# Carpetas de compilación
+/bin/
+/build/
+/obj/
+/out/
+
+# Carpetas de documentación
+/doc/
+
+/# Configuraciones de Visual Studio Code
+.vscode/
+
+/# Archivos específicos del usuario
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos temporales
+*.tmp
+*.log
+*.bak
+*.swp
+
+# Otros archivos generados
+*.dll
+*.exe
+*.pdb
+*.cache
+*.vs/

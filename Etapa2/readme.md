@@ -75,6 +75,12 @@ Esto despliegará un menú con indicaciones para el uso de las diferentes funcio
 
 ## Documentación en Doxygen
 
-Ya que este proyecto genera documentación utilizando Doxygen, se puede acceder a una explicación de las clases desde el navegador abriendo el siguiente enlace:
+Ya que este proyecto genera documentación utilizando Doxygen, se puede generar su documentación ejecutando el comando:
 
-[Documentación de MyProject](./doc/html/index.html)
+```bash
+make doc
+```
+
+Requerimientos:
+- Entorno con GNU Linux
+- Tener make y doxygen instalados
